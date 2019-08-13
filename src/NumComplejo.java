@@ -1,4 +1,4 @@
-
+import java.text.DecimalFormat;
 public class NumComplejo {
 	
 	private double numReal;
@@ -25,11 +25,27 @@ public class NumComplejo {
 		return new NumComplejo( numReal, numImag*-1);
 	}
 	
-	public void fase() {
-	
+	public double fase() {
+		double anguloRadianes = Math.atan(getImag()/getReal());
+		double angulo = Math.toDegrees(anguloRadianes);
+		DecimalFormat df = new DecimalFormat("#.##");
+		double resp = Double.parseDouble(df.format(angulo));
+		return resp;
 	}
 	
-	public void modulo() {
+	public double modulo() {
+		return Math.sqrt(getReal()*getReal()+getImag()*getImag());
+	}
 	
+	
+	
+	/**
+	 * Pruebitas personales
+	 */
+	
+	public static void main(String[] args) {
+		NumComplejo comple = new NumComplejo(4,-3);
+		System.out.println(comple.fase());
+		System.out.println(comple.modulo());
 	}
 }
