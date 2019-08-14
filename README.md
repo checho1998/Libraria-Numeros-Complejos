@@ -5,7 +5,7 @@
 En este repositorio se encontrara una librerie realizada en Java, cuyo objetivo es servir para realizar
 todas las operaciones de una calculadora de numeros complejos.
 
-##Utilidades
+## Utilidades
 
 ### Version 1
 
@@ -33,6 +33,6 @@ adicionalmente de contar con los archivos de este repositorio y tener un conocim
 Las pruebas estan desarrolladas con la dependencia de JUnit 5, por lo tanto en necesario tenerla
 en el pc donde se corran.
 
-##Autor
+## Autor
 
 - Sergio Alejandro Nuñez Mendivelso
