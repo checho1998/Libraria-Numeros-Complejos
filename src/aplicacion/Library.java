@@ -1,3 +1,4 @@
+package aplicacion;
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 public class Library {
@@ -101,9 +102,11 @@ public class Library {
 	 */
 	
 	public static double [] CartesianasAPolar(NumComplejo num1) {
+		
 		double [] arreglo= new double [2];
 		arreglo[0] =num1.modulo() ;
 		arreglo[1] =num1.fase();
+		
 		return arreglo;
 	}
 	
@@ -114,7 +117,7 @@ public class Library {
 	
 	public static void main(String[] args) {
 		
-		NumComplejo num = Library.multiplicacion(new NumComplejo(0,1) , new NumComplejo(0,1));
+		NumComplejo num = Library.division(new NumComplejo(2,4) , new NumComplejo(3,-3));
 		
 	}
 }
