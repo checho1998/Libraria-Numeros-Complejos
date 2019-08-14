@@ -2,7 +2,7 @@
 
 ## Comenzando
 
-En este repositorio se encontrara una librerie realizada en Java, cuyo objetivo es servir para realizar
+En este repositorio se encontrara una libreria realizada en Java, cuyo objetivo es servir para realizar
 todas las operaciones de una calculadora de numeros complejos.
 
 ## Utilidades
@@ -30,7 +30,7 @@ adicionalmente de contar con los archivos de este repositorio y tener un conocim
   
 ## Ejecutar Pruebas
 
-Las pruebas estan desarrolladas con la dependencia de JUnit 5, por lo tanto en necesario tenerla
+Las pruebas estan desarrolladas con la dependencia de JUnit 5, por lo tanto es necesario tenerla
 en el pc donde se corran.
 
 ## Autor
