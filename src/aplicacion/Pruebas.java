@@ -63,5 +63,21 @@ class Pruebas {
 		assertEquals(Resp.getReal(),9);
 		assertEquals(Resp.getImag(),7);
 	}
+	
+	@Test
+	void pruebaCartesianasAPolares() {
+		NumComplejo num1 = new NumComplejo(-5,3);
+		double[] Resp = Library.CartesianasAPolar(num1);
+		assertEquals(Resp[0],Math.sqrt(34));
+		assertEquals(Resp[1],149.04);
+	}
+	
+	@Test
+	void pruebaPolaresACartesianas() {
+		NumComplejo num1 = new NumComplejo(5,30);
+		double[] Resp = Library.PolaresACartesianas(5,30);
+		assertEquals(Resp[0],4.330127018922194);
+		assertEquals(Resp[1],2.4999999999999996);
+	}
 
 }

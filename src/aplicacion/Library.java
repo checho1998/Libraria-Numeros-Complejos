@@ -89,8 +89,8 @@ public class Library {
 	
 	public static double [] PolaresACartesianas(double r,double ang) {
 		double [] arreglo= new double [2];
-		arreglo[0] =r * Math.cos(ang) ;
-		arreglo[1] =r*Math.sin(ang);
+		arreglo[0] =r * Math.cos(Math.toRadians(ang) ) ;
+		arreglo[1] =r*Math.sin(Math.toRadians(ang));
 		
 		return arreglo;
 	}
@@ -106,6 +106,9 @@ public class Library {
 		double [] arreglo= new double [2];
 		arreglo[0] =num1.modulo() ;
 		arreglo[1] =num1.fase();
+		if(arreglo[1]<0) {
+			arreglo[1] = 180 + arreglo[1];
+		}
 		
 		return arreglo;
 	}
@@ -117,7 +120,8 @@ public class Library {
 	
 	public static void main(String[] args) {
 		
-		NumComplejo num = Library.division(new NumComplejo(2,4) , new NumComplejo(3,-3));
-		
+		double [] num = Library.PolaresACartesianas(5,30);
+		System.out.println(num[0]);
+		System.out.println(num[1]);
 	}
 }
