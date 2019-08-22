@@ -113,6 +113,23 @@ public class Library {
 		return arreglo;
 	}
 	
+	/**
+	 * metodo multiplica dos matrices
+	 * @param num1 numero complejo
+	 * @return un arreglo de doubles con las cordenadas
+	 */
+	
+	public static Matriz multiplicacionMatrices(Matriz matrix1,Matriz matrix2) {
+		
+		if(matrix1.getJ()==matrix2.getI()) {
+			Matriz matrxNew = new Matriz(matrix1.getI(), matrix2.getJ());
+			
+			return matrxNew;
+		}
+		return null;
+		
+		
+	}
 	
 	/**
 	 * Prubas pruebitas personales
