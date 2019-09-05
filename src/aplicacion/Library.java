@@ -41,13 +41,13 @@ public class Library {
 				num1.getReal()*num2.getImag()+num1.getImag()*num2.getReal());
 		
 		if (respuesta.getImag()<0) {
-			System.out.println(""+respuesta.getReal()+" "+respuesta.getImag()+"i");
+			//System.out.println(""+respuesta.getReal()+" "+respuesta.getImag()+"i");
 		}
 		else if(respuesta.getImag()==0){
-			System.out.println(""+respuesta.getReal());
+			//System.out.println(""+respuesta.getReal());
 		}
 		else {
-			System.out.println(""+respuesta.getReal()+"+"+respuesta.getImag()+"i");
+			//System.out.println(""+respuesta.getReal()+"+"+respuesta.getImag()+"i");
 		}
 		
 		return respuesta;
@@ -114,21 +114,42 @@ public class Library {
 	}
 	
 	/**
-	 * metodo multiplica dos matrices
+	 * metodo resta dos matrices
 	 * @param num1 numero complejo
 	 * @return un arreglo de doubles con las cordenadas
 	 */
 	
-	public static Matriz multiplicacionMatrices(Matriz matrix1,Matriz matrix2) {
+	public static Matriz sumarMatrices(Matriz matrix1,Matriz matrix2) {
 		
-		if(matrix1.getJ()==matrix2.getI()) {
+		if(matrix1.getI()==matrix2.getI()) {
 			Matriz matrxNew = new Matriz(matrix1.getI(), matrix2.getJ());
-			
+			for(int x = 0;x<matrxNew.getI();x++) {
+				for(int y = 0;y<matrxNew.getJ();y++) {
+					matrxNew.addNum(x, y,suma( matrix1.getNum(x, y),matrix2.getNum(x, y)));
+				}
+			}
 			return matrxNew;
 		}
 		return null;
+	}
+	
+	/**
+	 * metodo resta dos matrices
+	 * @param num1 numero complejo
+	 * @return un arreglo de doubles con las cordenadas
+	 */
+	public static Matriz restaMatrices(Matriz matrix1,Matriz matrix2) {
 		
-		
+		if(matrix1.getI()==matrix2.getI()) {
+			Matriz matrxNew = new Matriz(matrix1.getI(), matrix2.getJ());
+			for(int x = 0;x<matrxNew.getI();x++) {
+				for(int y = 0;y<matrxNew.getJ();y++) {
+					matrxNew.addNum(x, y,resta( matrix1.getNum(x, y),matrix2.getNum(x, y)));
+				}
+			}
+			return matrxNew;
+		}
+		return null;
 	}
 	
 	/**
@@ -136,9 +157,23 @@ public class Library {
 	 */
 	
 	public static void main(String[] args) {
+		Matriz matrix1 = new Matriz(2,2);
+		matrix1.addNum(0,0,new NumComplejo(2,0));
+		matrix1.addNum(0,1,new NumComplejo(3,0));
+		matrix1.addNum(1,0,new NumComplejo(1,0));
+		matrix1.addNum(1,1,new NumComplejo(4,0));
+		Matriz matrix2 = new Matriz(2,2);
+		matrix2.addNum(0,0,new NumComplejo(1,0));
+		matrix2.addNum(0,1,new NumComplejo(2,0));
+		matrix2.addNum(1,0,new NumComplejo(3,0));
+		matrix2.addNum(1,1,new NumComplejo(4,0));
 		
-		double [] num = Library.PolaresACartesianas(5,30);
-		System.out.println(num[0]);
-		System.out.println(num[1]);
+		Matriz num = Library.sumarMatrices(matrix1, matrix2);
+		
+		System.out.println(num.getNum(0,0).getReal());
+		System.out.println(num.getNum(0,1).getReal());
+		System.out.println(num.getNum(1,0).getReal());
+		System.out.println(num.getNum(1,1).getReal());
+		
 	}
 }

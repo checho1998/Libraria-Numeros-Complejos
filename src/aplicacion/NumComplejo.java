@@ -31,6 +31,7 @@ public class NumComplejo {
 		double angulo = Math.toDegrees(anguloRadianes);
 		DecimalFormat df = new DecimalFormat("#.##");
 		double resp = Double.parseDouble(df.format(angulo));
+		
 		return resp;
 	}
 	
@@ -45,8 +46,8 @@ public class NumComplejo {
 	 */
 	
 	public static void main(String[] args) {
-		NumComplejo comple = new NumComplejo(4,-3);
+		/**NumComplejo comple = new NumComplejo(4,-3);
 		System.out.println(comple.fase());
 		System.out.println(comple.modulo());
-	}
+	*/}
 }
