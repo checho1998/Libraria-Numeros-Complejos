@@ -28,4 +28,39 @@ public class Matriz {
 		return j;
 	}
 	
+	public Matriz transpuesta() {
+		Matriz trans = new Matriz(j,i);
+		for(int u = 0;u < i ;u++) {
+			for(int p = 0;p < j;p++) {
+				trans.addNum(p,u,this.getNum(u, p));
+			}
+		}
+		return trans;
+	}
+	
+	public Matriz inversa() {
+		Matriz trans = new Matriz(i,j);
+		for(int u = 0;u < i ;u++) {
+			for(int p = 0;p < j;p++) {
+				trans.addNum(u,p,Library.multiplicacion(this.getNum(u, p), new NumComplejo(-1, -1)));
+			}
+		}
+		return trans;
+	}
+	
+	public Matriz conjugada() {
+		Matriz trans = new Matriz(i,j);
+		for(int u = 0;u < i ;u++) {
+			for(int p = 0;p < j;p++) {
+				trans.addNum(u,p,this.getNum(u,p).getConjugado());
+			}
+		}
+		return trans;
+	}
+	
+	public Matriz adjunta() {
+		Matriz conju = this.conjugada();
+		Matriz adjun = conju.transpuesta();
+		return adjun;
+	}
 }
