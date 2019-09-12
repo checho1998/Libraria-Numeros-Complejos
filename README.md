@@ -58,7 +58,7 @@ adicionalmente de contar con los archivos de este repositorio y tener un conocim
 
 ## Como Provar
 
-- Para probar se pueden realizar pruebas como la siguiente y correrlas con el codigo ya indicado anteriormente 
+- Para probar se pueden realizar pruebas de cualquier utilidad, como las siguientes y correrlas con el codigo ya indicado anteriormente
 
 ``` Java
     @Test
