@@ -63,4 +63,49 @@ public class Matriz {
 		Matriz adjun = conju.transpuesta();
 		return adjun;
 	}
+	
+	/**
+	 * metodo para saber si es una matriz unitaria
+	 * @param num1 numero complejo
+	 * @return un arreglo de doubles con las cordenadas
+	 */
+	public boolean isUniaria() {
+		Matriz adjunta = this.adjunta();
+		Matriz resultante =Library.multiplicacionMatrices(adjunta,this);
+		Matriz unita = new Matriz(this.getI(),this.getJ());
+		
+		for (int x = 0 ; x<i;x++ ) {
+			for (int y = 0 ; y<j;y++ ) {
+				if (x == y) {
+					unita.addNum(x, y, new NumComplejo(1.0,0));
+				}
+				else {
+					unita.addNum(x, y, new NumComplejo(0,0));
+				}
+			}
+		}
+		boolean flag = true ;
+		for (int x = 0 ; x<i;x++ ) {
+			for (int y = 0 ; y<j;y++ ) {
+				if(resultante.getNum(x, y).getReal()!=unita.getNum(x, y).getReal()) {
+					flag = false;
+				}
+			}
+		}
+		return flag;
+	}
+	
+	public boolean isHermintania(){
+		boolean flag = false;
+		for (int x = 0 ; x<i;x++ ) {
+			for (int y = 0 ; y<j;y++ ) {
+				if (this.getNum(x, y).getImag() == this.getNum(y, x).getConjugado().getImag() ) {
+					if (this.getNum(x, y).getReal() == this.getNum(y, x).getConjugado().getReal() ) {
+						flag = true ;
+					}
+				}
+			}
+		}
+		return flag ;
+	}
 }

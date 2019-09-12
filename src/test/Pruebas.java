@@ -1,3 +1,5 @@
+package test;
+
 
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -267,7 +269,7 @@ class Pruebas {
 	}
 	
 	@Test
-	void pruebanormalMatriz() {
+	void pruebaNormalMatriz() {
 		Matriz matrix1 = new Matriz(2,2);
 		matrix1.addNum(0,0,new NumComplejo(2,2));
 		matrix1.addNum(0,1,new NumComplejo(3,3));
@@ -297,4 +299,28 @@ class Pruebas {
 		assertEquals(res,Math.sqrt(11));
 		
 	}
+	
+	@Test
+	void laMatrizesUnitaria() {
+		Matriz matrix1 = new Matriz(2,2);
+		matrix1.addNum(0,0,new NumComplejo(0,0));
+		matrix1.addNum(0,1,new NumComplejo(1,0));
+		matrix1.addNum(1,0,new NumComplejo(1,0));
+		matrix1.addNum(1,1,new NumComplejo(0,0));
+		
+		assertEquals(true,matrix1.isUniaria());
+		
+	}
+	
+	@Test
+	void laMatrizesHermintania() {
+		Matriz matrix1 = new Matriz(2,2);
+		matrix1.addNum(0,0,new NumComplejo(-1,0));
+		matrix1.addNum(0,1,new NumComplejo(0,-1));
+		matrix1.addNum(1,0,new NumComplejo(0,1));
+		matrix1.addNum(1,1,new NumComplejo(1,0));
+		
+		assertEquals(true,matrix1.isHermintania());
+	}
+	
 }

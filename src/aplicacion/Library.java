@@ -209,6 +209,7 @@ public class Library {
 		return normalMatrices(resultante);
 	}
 	
+	
 	/**
 	 * Prubas pruebitas personales
 	 */
