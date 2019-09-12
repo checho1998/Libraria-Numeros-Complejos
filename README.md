@@ -18,6 +18,21 @@ todas las operaciones de una calculadora de numeros complejos.
   - Fase de un número complejo.
   - Cordenadas Polares.
   - Cordenadas Cartesianas.
+  - Adición de vectores complejos.
+  - Inversa de vectores complejos.
+  - Multiplicación escalar de vectores complejos.
+  - Adición de matrices complejos.
+  - Inversa de matrices complejos.
+  - Multiplicación escalar de matrices complejas.
+  - Matriz transpuesta
+  - Matriz conjugada
+  - Matriz adjunta
+  - Función para calcular la "acción" de una matriz sobre un vector.
+  - Norma de matrices
+  - Distancia entrematrices
+  - Revisar si es unitaria
+  - Revisar si es Hermitian
+  - Producto tensor.
   
 ## Requisitos
 
