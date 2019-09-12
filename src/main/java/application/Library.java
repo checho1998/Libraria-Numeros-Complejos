@@ -1,4 +1,4 @@
-package aplicacion;
+package application;
 import java.util.ArrayList;
 
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;

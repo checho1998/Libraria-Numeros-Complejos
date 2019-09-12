@@ -1,4 +1,4 @@
-package aplicacion;
+package application;
 import java.text.DecimalFormat;
 public class NumComplejo {
 	

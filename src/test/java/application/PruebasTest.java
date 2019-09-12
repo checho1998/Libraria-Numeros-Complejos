@@ -1,94 +1,92 @@
-package test;
+package application;
 
 
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Test;
-
-import aplicacion.Library;
-import aplicacion.Matriz;
-import aplicacion.NumComplejo;
-
-class Pruebas {
+public class PruebasTest {
 
 	@Test
-	void pruebaGetConjugado() {
+	public void pruebaGetConjugado() {
 		NumComplejo num1 = new NumComplejo(2,7);
 		NumComplejo conju = num1.getConjugado();
-		assertEquals(conju.getReal(),2);
-		assertEquals(conju.getImag(),-7);
+		assertEquals(conju.getReal(),2,0);
+		assertEquals(conju.getImag(),-7,0);
 	}
 	
 	@Test
-	void pruebaFase() {
+	public void pruebaFase() {
 		NumComplejo num1 = new NumComplejo(3,5);
 		double fase = num1.fase();
-		assertEquals(fase,59.04);
+		assertEquals(fase,59.04,0);
 	}
 	
 	@Test
-	void pruebaModulo() {
+	public void pruebaModulo() {
 		NumComplejo num1 = new NumComplejo(5,4);
 		double modulo = num1.modulo();
-		assertEquals(modulo,Math.sqrt(41));
+		assertEquals(modulo,Math.sqrt(41),0);
 	}
 	
 	@Test
-	void pruebaMultiplicacion() {
+	public void pruebaMultiplicacion() {
 		NumComplejo num1 = new NumComplejo(8,5);
 		NumComplejo num2 = new NumComplejo(7,3);
 		NumComplejo Resp = Library.multiplicacion(num1, num2);
-		assertEquals(Resp.getReal(),41);
-		assertEquals(Resp.getImag(),59);
+		assertEquals(Resp.getReal(),41,0);
+		assertEquals(Resp.getImag(),59,0);
 	}
 	
 	@Test
-	void pruebaDivision() {
+	public void pruebaDivision() {
 		NumComplejo num1 = new NumComplejo(3,2);
 		NumComplejo num2 = new NumComplejo(-1,2);
 		NumComplejo Resp = Library.division(num1, num2);
-		assertEquals(Resp.getReal(),0.2);
-		assertEquals(Resp.getImag(),-1.6);
+		assertEquals(Resp.getReal(),0.2,0);
+		assertEquals(Resp.getImag(),-1.6,0);
 	}
 	
 	@Test
-	void pruebaSuma() {
+	public void pruebaSuma() {
 		NumComplejo num1 = new NumComplejo(4,3);
 		NumComplejo num2 = new NumComplejo(7,-2);
 		NumComplejo Resp = Library.suma(num1, num2);
-		assertEquals(Resp.getReal(),11);
-		assertEquals(Resp.getImag(),1);
+		assertEquals(Resp.getReal(),11,0);
+		assertEquals(Resp.getImag(),1,0);
 	}
 	
 	@Test
-	void pruebaResta() {
+	public void pruebaResta() {
 		NumComplejo num1 = new NumComplejo(15,8);
 		NumComplejo num2 = new NumComplejo(6,1);
 		NumComplejo Resp = Library.resta(num1, num2);
-		assertEquals(Resp.getReal(),9);
-		assertEquals(Resp.getImag(),7);
+		assertEquals(Resp.getReal(),9,0);
+		assertEquals(Resp.getImag(),7,0);
 	}
 	
 	@Test
-	void pruebaCartesianasAPolares() {
+	public void pruebaCartesianasAPolares() {
 		NumComplejo num1 = new NumComplejo(-5,3);
 		double[] Resp = Library.CartesianasAPolar(num1);
-		assertEquals(Resp[0],Math.sqrt(34));
-		assertEquals(Resp[1],149.04);
+		assertEquals(Resp[0],Math.sqrt(34),0);
+		assertEquals(Resp[1],149.04,0);
 	}
 	
 	@Test
-	void pruebaPolaresACartesianas() {
+	public void pruebaPolaresACartesianas() {
 		NumComplejo num1 = new NumComplejo(5,30);
 		double[] Resp = Library.PolaresACartesianas(5,30);
-		assertEquals(Resp[0],4.330127018922194);
-		assertEquals(Resp[1],2.4999999999999996);
+		assertEquals(Resp[0],4.330127018922194,0);
+		assertEquals(Resp[1],2.4999999999999996,0);
 	}
 	
 	
 	@Test
-	void pruebaSumarMatrices() {
+	public void pruebaSumarMatrices() {
 		Matriz matrix1 = new Matriz(2,2);
 		matrix1.addNum(0,0,new NumComplejo(2,0));
 		matrix1.addNum(0,1,new NumComplejo(3,0));
@@ -108,14 +106,14 @@ class Pruebas {
 		
 		for(int i = 0 ; i < res.getI();i++ ) {
 			for(int j = 0 ; j < res.getJ();j++ ) {
-				assertEquals(res.getNum(i, j).getReal(),matrix3.getNum(i, j).getReal());
+				assertEquals(res.getNum(i, j).getReal(),matrix3.getNum(i, j).getReal(),0);
 			}
 		}
 		
 	}
 	
 	@Test
-	void pruebaRestarMatrices() {
+	public void pruebaRestarMatrices() {
 		Matriz matrix1 = new Matriz(2,2);
 		matrix1.addNum(0,0,new NumComplejo(2,0));
 		matrix1.addNum(0,1,new NumComplejo(3,0));
@@ -136,7 +134,7 @@ class Pruebas {
 		
 		for(int i = 0 ; i < res.getI();i++ ) {
 			for(int j = 0 ; j < res.getJ();j++ ) {
-				assertEquals(res.getNum(i, j).getReal(),matrix3.getNum(i, j).getReal());
+				assertEquals(res.getNum(i, j).getReal(),matrix3.getNum(i, j).getReal(),0);
 			}
 		}
 		
@@ -144,7 +142,7 @@ class Pruebas {
 	
 	
 	@Test
-	void pruebaMatrizTranspuesta() {
+	public void pruebaMatrizTranspuesta() {
 		Matriz matrix1 = new Matriz(2,3);
 		matrix1.addNum(0,0,new NumComplejo(2,0));
 		matrix1.addNum(0,1,new NumComplejo(3,0));
@@ -163,13 +161,13 @@ class Pruebas {
 		Matriz res = matrix1.transpuesta();
 		for(int i = 0 ; i < res.getI();i++ ) {
 			for(int j = 0 ; j < res.getJ();j++ ) {
-				assertEquals(res.getNum(2, 0).getReal(),matrix1.getNum(0,2).getReal());
+				assertEquals(res.getNum(2, 0).getReal(),matrix1.getNum(0,2).getReal(),0);
 			}
 		}
 	}
 	
 	@Test
-	void pruebaMatrizInversa() {
+	public void pruebaMatrizInversa() {
 		Matriz matrix1 = new Matriz(2,3);
 		matrix1.addNum(0,0,new NumComplejo(2,0));
 		matrix1.addNum(0,1,new NumComplejo(3,0));
@@ -188,13 +186,13 @@ class Pruebas {
 		Matriz res = matrix1.inversa();
 		for(int i = 0 ; i < res.getI();i++ ) {
 			for(int j = 0 ; j < res.getJ();j++ ) {
-				assertEquals(res.getNum(i,j).getReal(),matrix2.getNum(i,j).getReal());
+				assertEquals(res.getNum(i,j).getReal(),matrix2.getNum(i,j).getReal(),0);
 			}
 		}
 	}
 	
 	@Test
-	void pruebaMatrizConjugada() {
+	public void pruebaMatrizConjugada() {
 		Matriz matrix1 = new Matriz(2,3);
 		matrix1.addNum(0,0,new NumComplejo(2,1));
 		matrix1.addNum(0,1,new NumComplejo(3,2));
@@ -213,13 +211,13 @@ class Pruebas {
 		Matriz res = matrix1.conjugada();
 		for(int i = 0 ; i < res.getI();i++ ) {
 			for(int j = 0 ; j < res.getJ();j++ ) {
-				assertEquals(res.getNum(i,j).getImag(),matrix2.getNum(i,j).getImag());
+				assertEquals(res.getNum(i,j).getImag(),matrix2.getNum(i,j).getImag(),0);
 			}
 		}
 	}
 	
 	@Test
-	void pruebaMatrizadjunta() {
+	public void pruebaMatrizadjunta() {
 		Matriz matrix1 = new Matriz(2,2);
 		matrix1.addNum(0,0,new NumComplejo(2,1));
 		matrix1.addNum(0,1,new NumComplejo(3,2));
@@ -234,13 +232,13 @@ class Pruebas {
 		Matriz res = matrix1.adjunta();
 		for(int i = 0 ; i < res.getI();i++ ) {
 			for(int j = 0 ; j < res.getJ();j++ ) {
-				assertEquals(res.getNum(i,j).getImag(),matrix2.getNum(i,j).getImag());
+				assertEquals(res.getNum(i,j).getImag(),matrix2.getNum(i,j).getImag(),0);
 			}
 		}
 	}
 	
 	@Test
-	void pruebamultiplicacionMatriz() {
+	public void pruebamultiplicacionMatriz() {
 		Matriz matrix1 = new Matriz(2,2);
 		matrix1.addNum(0,0,new NumComplejo(2,0));
 		matrix1.addNum(0,1,new NumComplejo(3,0));
@@ -263,13 +261,13 @@ class Pruebas {
 		
 		for(int i = 0 ; i < matrix3.getI();i++ ) {
 			for(int j = 0 ; j < matrix3.getJ();j++ ) {
-				assertEquals(res.getNum(i,j).getReal(),matrix3.getNum(i,j).getReal());
+				assertEquals(res.getNum(i,j).getReal(),matrix3.getNum(i,j).getReal(),0);
 			}
 		}
 	}
 	
 	@Test
-	void pruebaNormalMatriz() {
+	public void pruebaNormalMatriz() {
 		Matriz matrix1 = new Matriz(2,2);
 		matrix1.addNum(0,0,new NumComplejo(2,2));
 		matrix1.addNum(0,1,new NumComplejo(3,3));
@@ -278,12 +276,12 @@ class Pruebas {
 		
 		double res = Library.normalMatrices(matrix1);
 		
-		assertEquals(res,Math.sqrt(68));
+		assertEquals(res,Math.sqrt(68),0);
 		
 	}
 	
 	@Test
-	void distanciaEntreMatriz() {
+	public void distanciaEntreMatriz() {
 		Matriz matrix1 = new Matriz(3,1);
 		matrix1.addNum(0,0,new NumComplejo(3,0));
 		matrix1.addNum(1,0,new NumComplejo(1,0));
@@ -296,12 +294,12 @@ class Pruebas {
 		
 		double res = Library.DistanciaEntreMatrices(matrix1,matrix2);
 		
-		assertEquals(res,Math.sqrt(11));
+		assertEquals(res,Math.sqrt(11),0);
 		
 	}
 	
 	@Test
-	void laMatrizesUnitaria() {
+	public void laMatrizesUnitaria() {
 		Matriz matrix1 = new Matriz(2,2);
 		matrix1.addNum(0,0,new NumComplejo(0,0));
 		matrix1.addNum(0,1,new NumComplejo(1,0));
@@ -313,7 +311,7 @@ class Pruebas {
 	}
 	
 	@Test
-	void laMatrizesHermintania() {
+	public void laMatrizesHermintania() {
 		Matriz matrix1 = new Matriz(2,2);
 		matrix1.addNum(0,0,new NumComplejo(-1,0));
 		matrix1.addNum(0,1,new NumComplejo(0,-1));

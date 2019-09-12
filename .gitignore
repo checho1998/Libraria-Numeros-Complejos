@@ -144,3 +144,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/java,maven,windows,eclipse,netbeans
+/nbproject/
