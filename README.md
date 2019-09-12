@@ -56,6 +56,67 @@ todas las operaciones de una calculadora de numeros complejos.
 Para hacer uso de esta libreria es necesario tener un IDE( Eclipse, Netbeans, etc... ),
 adicionalmente de contar con los archivos de este repositorio y tener un conocimiento basico en Java.
 
+## Como Provar
+
+- Para probar se pueden realizar pruebas como la siguiente y correrlas con el codigo ya indicado anteriormente 
+
+``` Java
+    @Test
+      public void pruebaSumarMatrices() {
+        Matriz matrix1 = new Matriz(2,2);
+        matrix1.addNum(0,0,new NumComplejo(2,0));
+        matrix1.addNum(0,1,new NumComplejo(3,0));
+        matrix1.addNum(1,0,new NumComplejo(1,0));
+        matrix1.addNum(1,1,new NumComplejo(4,0));
+        Matriz matrix2 = new Matriz(2,2);
+        matrix2.addNum(0,0,new NumComplejo(1,0));
+        matrix2.addNum(0,1,new NumComplejo(2,0));
+        matrix2.addNum(1,0,new NumComplejo(3,0));
+        matrix2.addNum(1,1,new NumComplejo(4,0));
+        Matriz matrix3 = new Matriz(2,2);
+        matrix3.addNum(0,0,new NumComplejo(3,0));
+        matrix3.addNum(0,1,new NumComplejo(5,0));
+        matrix3.addNum(1,0,new NumComplejo(4,0));
+        matrix3.addNum(1,1,new NumComplejo(8,0));
+        Matriz res = Library.sumarMatrices(matrix1, matrix2);
+
+        for(int i = 0 ; i < res.getI();i++ ) {
+          for(int j = 0 ; j < res.getJ();j++ ) {
+            assertEquals(res.getNum(i, j).getReal(),matrix3.getNum(i, j).getReal(),0);
+          }
+        }
+
+      }
+      
+      @Test
+	public void pruebamultiplicacionMatriz() {
+		Matriz matrix1 = new Matriz(2,2);
+		matrix1.addNum(0,0,new NumComplejo(2,0));
+		matrix1.addNum(0,1,new NumComplejo(3,0));
+		matrix1.addNum(1,0,new NumComplejo(1,0));
+		matrix1.addNum(1,1,new NumComplejo(4,0));
+		
+		Matriz matrix2 = new Matriz(2,2);
+		matrix2.addNum(0,0,new NumComplejo(1,0));
+		matrix2.addNum(0,1,new NumComplejo(2,0));
+		matrix2.addNum(1,0,new NumComplejo(3,0));
+		matrix2.addNum(1,1,new NumComplejo(4,0));
+		
+		Matriz matrix3 = new Matriz(2,2);
+		matrix3.addNum(0,0,new NumComplejo(11,0));
+		matrix3.addNum(0,1,new NumComplejo(16,0));
+		matrix3.addNum(1,0,new NumComplejo(13,0));
+		matrix3.addNum(1,1,new NumComplejo(18,0));
+		
+		Matriz res = Library.multiplicacionMatrices(matrix1, matrix2);
+		
+		for(int i = 0 ; i < matrix3.getI();i++ ) {
+			for(int j = 0 ; j < matrix3.getJ();j++ ) {
+				assertEquals(res.getNum(i,j).getReal(),matrix3.getNum(i,j).getReal(),0);
+			}
+		}
+	}
+```
 ## Construido en lenguaje
   
   - Java (V8)
