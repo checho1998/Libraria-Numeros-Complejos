@@ -208,8 +208,35 @@ public class Library {
 		Matriz resultante = restaMatrices(matrix1, matrix2);
 		return normalMatrices(resultante);
 	}
-	
-	
+        
+        
+        /**
+	 * metodo para sacar la normal de una matriz
+	 * @param num1 numero complejo
+	 * @return un arreglo de doubles con las cordenadas
+	 */
+	public static Matriz productoTensor(Matriz matrix1,Matriz matrix2) {
+		Matriz resultante = new Matriz(matrix1.getI()*matrix2.getI(), matrix2.getJ()*matrix1.getJ());
+                int temp = 0;
+		for(int i = 0;i<resultante.getI();i++){
+                    for(int j = 0;j<resultante.getJ();j++){
+                        for(int p = 0;p<matrix1.getI();p++){
+                            for(int o = 0;o<matrix1.getJ();o++){
+                                for(int l = 0;l<matrix2.getI();l++){
+                                    for(int m = 0;m<matrix2.getJ();m++){
+                                        System.out.println(i+" i "+j+" j "+l+" l "+m+" m ");
+                                        resultante.addNum(i, j,multiplicacion(matrix1.getNum(p,o),matrix2.getNum(l,m)));
+                                        temp ++;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                return resultante;
+	}
+        
+        
 	/**
 	 * Prubas pruebitas personales
 	 */

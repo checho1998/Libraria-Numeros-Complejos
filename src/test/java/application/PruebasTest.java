@@ -320,5 +320,32 @@ public class PruebasTest {
 		
 		assertEquals(true,matrix1.isHermintania());
 	}
-	
+        //
+        @Test
+	public void tensor() {
+		Matriz matrix1 = new Matriz(2,1);
+		matrix1.addNum(0,0,new NumComplejo(1,0));
+		matrix1.addNum(1,0,new NumComplejo(2,0));
+               
+		
+		Matriz matrix2 = new Matriz(2,2);
+		matrix2.addNum(0,0,new NumComplejo(1,0));
+		matrix2.addNum(1,0,new NumComplejo(3,0));
+		matrix2.addNum(0,1,new NumComplejo(2,0));
+		matrix2.addNum(1,1,new NumComplejo(4,0));
+                
+                Matriz res = new Matriz(4,2);
+		res.addNum(0,0,new NumComplejo(1,0));
+		res.addNum(1,0,new NumComplejo(3,0));
+		res.addNum(0,1,new NumComplejo(2,0));
+		res.addNum(1,1,new NumComplejo(4,0));
+		res.addNum(2,0,new NumComplejo(2,0));
+		res.addNum(3,0,new NumComplejo(6,0));
+		res.addNum(2,1,new NumComplejo(4,0));
+		res.addNum(3,1,new NumComplejo(8,0));
+                Matriz comp = Library.productoTensor(matrix1, matrix2);
+		
+                System.out.println(comp.getNum(0, 0).getReal()+"sergio"+res.getNum(0,0).getReal());
+	}
+    
 }
