@@ -56,7 +56,7 @@ todas las operaciones de una calculadora de numeros complejos.
 Para hacer uso de esta libreria es necesario tener un IDE( Eclipse, Netbeans, etc... ),
 adicionalmente de contar con los archivos de este repositorio y tener un conocimiento basico en Java.
 
-## Como Provar
+## Como Probar
 
 - Para probar se pueden realizar pruebas de cualquier utilidad, como las siguientes y correrlas con el codigo ya indicado anteriormente
 
