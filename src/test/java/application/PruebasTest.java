@@ -347,5 +347,122 @@ public class PruebasTest {
 		
                 System.out.println(comp.getNum(0, 0).getReal()+"sergio"+res.getNum(0,0).getReal());
 	}
+        
+        @Test
+	public void deberiaSimularExperimentoDeCanicas() {
+
+		double[][] matr1 = {{0,0,0,0,0,0,0,0},{0.5,0,0,0,0,0,0,0},{0.5,0,0,0,0,0,0,0},{0,0.33,0,1,0,0,0,0},{0,0.33,0,0,1,0,0,0},{0,0.33,0.33,0,0,1,0,0},{0,0,0.33,0,0,0,1,0},{0,0,0.33,0,0,0,0,1}};
+		
+		NumComplejo num1 = new NumComplejo(1,0);
+		NumComplejo num2 = new NumComplejo(0,0);
+		NumComplejo num3 = new NumComplejo(0,0);
+		NumComplejo num4 = new NumComplejo(0,0);
+		NumComplejo num5 = new NumComplejo(0,0);
+		NumComplejo num6 = new NumComplejo(0,0);
+		NumComplejo num7 = new NumComplejo(0,0);
+		NumComplejo num8 = new NumComplejo(0,0);
+		
+		NumComplejo[] vect1 = new NumComplejo[8];
+		
+		vect1[0] = num1;
+		vect1[1] = num2;
+		vect1[2] = num3;
+		vect1[3] = num4;
+		vect1[4] = num5;
+		vect1[5] = num6;
+		vect1[6] = num7;
+		vect1[7] = num8;
+		
+		NumComplejo[] res = Library.multiplesRendijas(matr1, 1, 2, vect1);
+		
+		assertEquals(0,res[0].getReal(),0);
+		assertEquals(0,res[0].getImag(),0);
+		assertEquals(0,res[1].getReal(),0);
+		assertEquals(0,res[1].getImag(),0);
+		assertEquals(0,res[2].getReal(),0);
+		assertEquals(0,res[2].getImag(),0);
+		assertEquals(0.165,res[3].getReal(),0);
+		assertEquals(0,res[3].getImag(),0);
+		assertEquals(0.165,res[4].getReal(),0);
+		assertEquals(0,res[4].getImag(),0);
+		assertEquals(0.33,res[5].getReal(),0);
+		assertEquals(0,res[5].getImag(),0);
+		assertEquals(0.165,res[6].getReal(),0);
+		assertEquals(0,res[6].getImag(),0);
+		assertEquals(0.165,res[7].getReal(),0);
+		assertEquals(0,res[7].getImag(),0);
+	}
+        
+        @Test
+	public void deberiaSimularExperimentoDeMultiplesRendijas() {
+		NumComplejo num1 = new NumComplejo(3,-2);
+		NumComplejo num2 = new NumComplejo(1,1);
+		NumComplejo num3 = new NumComplejo(5,-6);
+		NumComplejo num4 = new NumComplejo(0,1);
+		NumComplejo num5 = new NumComplejo(4,2);
+		NumComplejo num6 = new NumComplejo(3,-1);
+		NumComplejo num7 = new NumComplejo(4,-1);
+		NumComplejo num8 = new NumComplejo(2,-2);
+		NumComplejo num9 = new NumComplejo(1,-2);
+		
+		NumComplejo num10 = new NumComplejo(5,-1);
+		NumComplejo num11 = new NumComplejo(2,-1);
+		NumComplejo num12 = new NumComplejo(2,-1);
+
+		NumComplejo[][] matr1 = new NumComplejo [3][3];
+		NumComplejo[] vect1 = new NumComplejo[3];
+		
+		matr1[0][0] = num1;
+		matr1[0][1] = num2;
+		matr1[0][2] = num3;
+		matr1[1][0] = num4;
+		matr1[1][1] = num5;
+		matr1[1][2] = num6;
+		matr1[2][0] = num7;
+		matr1[2][1] = num8;
+		matr1[2][2] = num9;
+		
+		vect1[0] = num10;
+		vect1[1]= num11;
+		vect1[2]= num12;
+		
+		NumComplejo[] res = Library.multiplesRendijasComplejos(matr1, 2, 3, vect1);
+	}
+        
+        @Test 
+	public void deberiaSacarLaProbabilidadDeUnaParticulaEnUnaPosicion() {
+		NumComplejo num1 = new NumComplejo(-3,-1);
+		NumComplejo num2 = new NumComplejo(0,-2);
+		NumComplejo num3 = new NumComplejo(0,1);
+		NumComplejo num4 = new NumComplejo(2,0);
+		
+		NumComplejo[] vect1 = new NumComplejo[4];
+		
+		vect1[0] = num1;
+		vect1[1]= num2;
+		vect1[2]= num3;
+		vect1[3]= num4;
+		
+		double res = Library.calcularProbabilidadDeParticulaEnUnaPosicionDeSistemaCuantico(4, 2, vect1);
+		
+		assertEquals(0.05263157894736841,res,0);
+	}
+        
+        @Test
+	public void deberiaSacarDistanciaEntreKets() {
+		NumComplejo c1 = new NumComplejo(3, 2);
+		NumComplejo c2 = new NumComplejo(0, 0);
+		NumComplejo c3 = new NumComplejo(5, -6);
+		NumComplejo c4 = new NumComplejo(1, 0);
+		NumComplejo c5 = new NumComplejo(4, 2);
+		NumComplejo c6 = new NumComplejo(0, 1);
+		
+		NumComplejo[] k1 = new NumComplejo[] { c1, c2, c3 };
+		NumComplejo[] k2 = new NumComplejo[] { c4, c5, c6 };
+		
+		double res = Library.calcularDistanciaEntreKets(k1, k2);
+		
+		assertEquals(Math.sqrt(102),res,0);
+	}
     
 }
