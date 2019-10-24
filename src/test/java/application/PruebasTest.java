@@ -464,5 +464,41 @@ public class PruebasTest {
 		
 		assertEquals(Math.sqrt(102),res,0);
 	}
-    
+        
+        @Test
+	public void deberiaSacarLaMedia() {
+		NumComplejo c1 = new NumComplejo(3, 2);
+		NumComplejo c2 = new NumComplejo(0, 0);
+		NumComplejo c3 = new NumComplejo(5, -6);
+		NumComplejo c4 = new NumComplejo(1, 0);
+		NumComplejo c5 = new NumComplejo(4, 2);
+		NumComplejo c6 = new NumComplejo(0, 1);
+		
+		NumComplejo[] k1 = new NumComplejo[] { c1, c2, c3 };
+		NumComplejo[] k2 = new NumComplejo[] { c4, c5, c6 };
+		
+		double res = Library.calcularDistanciaEntreKets(k1, k2);
+		
+		assertEquals(Math.sqrt(102),res,0);
+	}
+	
+	@Test
+	public void deberiaCalcularLaVarianza() {
+		
+		Matriz matrix1 = new Matriz(3,1);
+		matrix1.addNum(0,0,new NumComplejo(3,0));
+		matrix1.addNum(1,0,new NumComplejo(1,0));
+		matrix1.addNum(2,0,new NumComplejo(2,0));
+		
+		Matriz matrix2 = new Matriz(3,1);
+		matrix2.addNum(0,0,new NumComplejo(2,0));
+		matrix2.addNum(1,0,new NumComplejo(2,0));
+		matrix2.addNum(2,0,new NumComplejo(-1,0));
+		
+		double res = Library.DistanciaEntreMatrices(matrix1,matrix2);
+		
+		assertEquals(res,Math.sqrt(11),0);
+	}
+	
+	
 }
